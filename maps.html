@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="index.css">
   <style>
     input[name="mapbg"] { display: none; }
-    /* Always-running main background video (lowest layer) */
     .mainbg {
       position: fixed;
       top: 0; left: 0;
@@ -16,14 +15,12 @@
       z-index: -2;
       display: block;
     }
-    /* Map-triggered videos (sit above main, below content) */
     .bgvideo { 
       position: fixed; top: 0; left: 0;
       width: 100vw; height: 100vh;
       object-fit: cover;
       z-index: -1;
       display: none;
-      /* No opacity! */
     }
     #desert:checked ~ .bg-desert,
     #sky:checked ~ .bg-sky,
@@ -43,14 +40,14 @@
   </style>
 </head>
 <body>
-  <!-- Always-playing site background video (lowest layer) -->
+
   <video class="mainbg" src="front.mov" autoplay muted loop></video>
   
-  <!-- Radio buttons to pick map video -->
+
   <input type="radio" id="desert" name="mapbg">
   <input type="radio" id="sky" name="mapbg">
   <input type="radio" id="snow" name="mapbg">
-  <!-- Map-specific videos (sit above mainbg, shown on click) -->
+
   <video class="bgvideo bg-desert" src="desert.mov" autoplay muted loop></video>
   <video class="bgvideo bg-sky" src="ancient.mov" autoplay muted loop></video>
   <video class="bgvideo bg-snow" src="snow.mov" autoplay muted loop></video>
@@ -81,7 +78,7 @@
     <h2 class="maps-title">🗺 Featured Battle Maps</h2>
     <p class="maps-subtitle">Explore terrains where legends are made</p>
     <div class="maps-grid">
-      <!-- Click to reveal map-specific video (no opacity, full brightness) -->
+
       <label for="desert" class="map-card">
         <img src="desert.png" alt="Desert Storm Map">
         <div class="map-overlay">

@@ -20,7 +20,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Video backgrounds & overlays */
+
 video, .mainbg, .bgvideo {
   position: fixed;
   top: 0;
@@ -31,7 +31,7 @@ video, .mainbg, .bgvideo {
   z-index: -1;
 }
 
-/* Navbar */
+
 .navbar {
   height: 100px;
   width: 100%;
@@ -103,7 +103,7 @@ a {
   text-decoration: none;
 }
 
-/* Top tab navigation */
+
 .tabs {
   display: flex;
   justify-content: center;
@@ -138,7 +138,7 @@ a {
   box-shadow: 0 0 6px rgba(255, 255, 255, 0.05), inset 0 0 8px rgba(255, 255, 255, 0.05);
 }
 
-/* Battle Card Setup Section */
+
 .hero {
   text-align: center;
   margin-top: 1rem;
@@ -249,7 +249,7 @@ fieldset input[type="checkbox"] {
   transform: translateY(-3px);
 }
 
-/* Maps page */
+
 .maps-section {
   text-align: center;
   color: #fff;
@@ -312,7 +312,7 @@ fieldset input[type="checkbox"] {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Weapons page */
+
 .weapons-hero {
   text-align: center;
   margin-top: 20px;
@@ -385,7 +385,7 @@ fieldset input[type="checkbox"] {
   font-size: 1.2rem;
 }
 
-/* Characters page */
+
 .container {
   display: flex;
   justify-content: center;
