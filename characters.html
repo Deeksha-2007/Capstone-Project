@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Characters - SquadSync</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    body {
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px 0;
+    }
+
+    .character-selection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #141d2a;
+      border-radius: 22px;
+      padding: 20px 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+      width: 260px;
+    }
+
+    .character-card {
+      width: 100%;
+      background: #182033;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      text-align: center;
+      cursor: pointer;
+      padding: 18px 0 12px;
+      transition: box-shadow 0.3s;
+      box-shadow: 0 2px 12px rgba(10, 200, 255, 0.09);
+      opacity: 0.7;
+      border: 2px solid transparent;
+    }
+
+    .character-card.active {
+      box-shadow: 0 6px 35px rgba(11, 232, 255, 0.21);
+      opacity: 1;
+      border-color: #1dd3f8;
+    }
+
+    .character-card img {
+      width: 70px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      background: #0c0c1a;
+    }
+
+    .character-card h3 {
+      color: #1dd3f8;
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    .character-card p {
+      color: #aaa;
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+
+    .preview-area {
+      flex: 1;
+      background: #121d27;
+      border-radius: 22px;
+      padding: 38px 50px;
+      color: #fff;
+      box-shadow: 0 4px 23px rgba(0, 255, 255, 0.09);
+      min-width: 390px;
+      text-align: center;
+      margin-right: 20px;
+    }
+
+    .preview-area img {
+      width: 210px;
+      border-radius: 18px;
+      margin-bottom: 22px;
+      box-shadow: 0 0 18px #1dd3f8a3;
+      background: #222a45;
+    }
+
+    .preview-area h1 {
+      margin: 0;
+      font-size: 2.1rem;
+      color: #1dd3f8;
+      font-weight: 700;
+    }
+
+    .preview-area .character-role {
+      color: #fff;
+      background: #193246;
+      border-radius: 8px;
+      padding: 4px 16px;
+      display: inline-block;
+      font-size: 0.97rem;
+      margin: 9px 0 14px 0;
+      font-weight: 500;
+    }
+
+    .preview-area p {
+      font-size: 1.04rem;
+      color: #c7eaff;
+      margin-bottom: 22px;
+    }
+
+    .loadout {
+      width: 260px;
+      background: #141d2a;
+      padding: 28px 20px;
+      border-radius: 22px;
+      box-shadow: 0 4px 18px rgba(0, 255, 255, 0.07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .loadout h2 {
+      margin-bottom: 16px;
+      color: #1dd3f8;
+    }
+
+    .section {
+      margin-bottom: 18px;
+      width: 100%;
+    }
+
+    .options {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .opt {
+      flex: 1;
+      padding: 7px;
+      border-radius: 7px;
+      background: #182036;
+      border: 1px solid #253056;
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.99rem;
+      transition: background .2s;
+    }
+
+    .opt.active {
+      background: #1dd3f8;
+      color: #000;
+    }
+
+    .apply {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      background: linear-gradient(45deg, #147dff, #1dd3f8);
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .final {
+      margin-top: 14px;
+      padding: 10px;
+      background: #1b223a;
+      border-radius: 8px;
+      width: 100%;
+      text-align: center;
+      color: #aeefff;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+  <video autoplay muted loop playsinline>
+    <source src="front.mov" type="video/mp4">
+  </video>
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="SquadSync Logo">
+      <span class="logo-text">SquadSync</span>
+    </div>
+    <div class="theme-toggle">
+      <span class="sun">☼</span>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+      <span class="moon">☾</span>
+    </div>
+  </header>
+  <nav class="tabs">
+    <div class="tab-indicator">
+      <a class="tab" href="index.html">Battle Cards</a>
+      <a class="tab" href="maps.html">Maps</a>
+      <a class="tab" href="weapons.html">Weapons</a>
+      <a class="tab active" href="characters.html">Characters</a>
+    </div>
+  </nav>
+  <section id="characters-section" class="section-content active">
+    <div class="container">
+      <aside class="character-selection">
+        <h2>Operators</h2>
+        <div class="character-card active" onclick="selectCharacter('rumi')">
+          <h3>Rumi</h3>
+          <p>Support Medic</p>
+        </div>
+        <div class="character-card" onclick="selectCharacter('sky')">
+          <h3>Sky</h3>
+          <p>Recon Specialist</p>
+        </div>
+        <div class="character-card" onclick="selectCharacter('marshal')">
+          <h3>Marshal</h3>
+          <p>Frontline Soldier</p>
+        </div>
+      </aside>
+      <main class="preview-area" id="previewArea">
+        <img id="charImage" src="rumi.png" alt="Rumi">
+        <h1 id="charTitle">Rumi</h1>
+        <span class="character-role" id="charRole">Support Medic</span>
+        <p id="charBio">Versatile medic who can revive and boost teammates on the fly.</p>
+      </main>
+      <aside class="loadout">
+        <h2>Customize Loadout</h2>
+        <div class="section">
+          <label>Helmet</label>
+          <div class="options" data-type="helmet">
+            <button class="opt active">Mk1</button>
+            <button class="opt">Mk2</button>
+            <button class="opt">Mk3</button>
+          </div>
+        </div>
+        <div class="section">
+          <label>Vest</label>
+          <div class="options" data-type="vest">
+            <button class="opt active">Light</button>
+            <button class="opt">Combat</button>
+            <button class="opt">Heavy</button>
+          </div>
+        </div>
+        <div class="section">
+          <label>Skin</label>
+          <div class="options" data-type="skin">
+            <button class="opt active">Urban</button>
+            <button class="opt">Desert</button>
+            <button class="opt">Forest</button>
+          </div>
+        </div>
+        <button id="applyBtn" class="apply">Apply</button>
+        <div class="final">
+          <h3>Selected Loadout</h3>
+          <p id="loadoutSummary">Mk1 • Light • Urban</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+  <script>
+    // Only use img, name, role, bio now.
+    const characterData = {
+      rumi: {
+        img: 'rumi.png',
+        name: 'Rumi',
+        role: 'Support Medic',
+        bio: 'Versatile medic who can revive teammates on the fly.'
+      },
+      sky: {
+        img: 'sky.png',
+        name: 'Sky',
+        role: 'Recon Specialist',
+        bio: 'Silent recon with enhanced vision and quick escapes.'
+      },
+      marshal: {
+        img: 'marshal.png',
+        name: 'Marshal',
+        role: 'Frontline Soldier',
+        bio: 'Heavy weapon expert with maximum damage output.'
+      }
+    };
+    function selectCharacter(key) {
+      document.querySelectorAll('.character-card').forEach(c => c.classList.remove('active'));
+      document.querySelector('.character-card[onclick*="' + key + '"]').classList.add('active');
+      const c = characterData[key];
+      document.getElementById('charImage').src = c.img;
+      document.getElementById('charImage').alt = c.name;
+      document.getElementById('charTitle').textContent = c.name;
+      document.getElementById('charRole').textContent = c.role;
+      document.getElementById('charBio').textContent = c.bio;
+    }
+    window.onload = () => selectCharacter('rumi');
+  </script>
+</body>
+
+</html>

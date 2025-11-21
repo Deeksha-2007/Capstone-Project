@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SquadSync Gaming Web App</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="SquadSync Logo">
+      <span class="logo-text">SquadSync</span>
+    </div>
+    <div class="theme-toggle">
+      <span class="sun">☼</span>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+      <span class="moon">☾</span>
+    </div>
+  </header>
+  <nav class="tabs">
+    <div class="tab-indicator">
+      <a class="tab" href="index.html">Battle Cards</a>
+      <a class="tab" href="maps.html">Maps</a>
+      <a class="tab" href="weapons.html">Weapons</a>
+      <a class="tab" href="characters.html">Characters</a>
+    </div>
+  </nav>
+  
+  <video autoplay muted loop playsinline>
+    <source src="front.mov" type="video/mp4">
+  </video>
+  
+  <section id="battle-section" class="section-content active">
+    <section class="hero">
+      <h1>SquadSync 🎯</h1>
+    </section>
+    <section class="tactical">
+      <h2>🎮 Battle Card Setup</h2>
+      <form class="battle-form">
+        <fieldset>
+          <legend>Player Profile</legend>
+          <label for="skill">Skill Level</label>
+          <select id="skill" name="skill">
+            <option>All Levels</option>
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+            <option>Pro</option>
+          </select>
+          <label for="playstyle">Preferred Playstyle</label>
+          <select id="playstyle" name="playstyle">
+            <option>All Styles</option>
+            <option>Rusher</option>
+            <option>Support</option>
+            <option>Sniper</option>
+            <option>Strategist</option>
+            <option>Camper</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <legend>Communication</legend>
+          <label for="region">Region</label>
+          <select id="region" name="region">
+            <option>All Regions</option>
+            <option>Asia</option>
+            <option>Europe</option>
+            <option>North America</option>
+            <option>South America</option>
+            <option>Africa</option>
+            <option>Oceania</option>
+          </select>
+          <label for="language">Language</label>
+          <select id="language" name="language">
+            <option>All Languages</option>
+            <option>English</option>
+            <option>Hindi</option>
+            <option>Spanish</option>
+            <option>French</option>
+            <option>Japanese</option>
+          </select>
+        </fieldset>
+        <fieldset class="mic-status">
+          <legend>Mic Status</legend>
+          <label><input type="radio" name="mic" value="on" checked> On 🎙</label>
+          <label><input type="radio" name="mic" value="off"> Off 🔇</label>
+        </fieldset>
+        <fieldset>
+          <legend>🧢 Preferences</legend>
+          <label><input type="checkbox" name="team" value="duo"> Duo Mode</label>
+          <label><input type="checkbox" name="team" value="squad"> Squad Mode</label>
+          <label><input type="checkbox" name="voice" value="voice-chat"> Voice Chat Enabled</label>
+          <label><input type="checkbox" name="clan" value="looking-clan"> Looking for Clan</label>
+        </fieldset>
+        <button type="submit" class="generate-btn">⚔️ Generate Battle Card</button>
+      </form>
+    </section>
+  </section>
+
+</body>
+</html>
