@@ -27,8 +27,11 @@
       padding: 20px 24px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
       width: 260px;
+      padding: 20px;
     }
-
+    #op{ margin-top: 20px;
+      color: #1dd3f8;
+    }
     .character-card {
       width: 100%;
       background: #182033;
@@ -41,6 +44,7 @@
       box-shadow: 0 2px 12px rgba(10, 200, 255, 0.09);
       opacity: 0.7;
       border: 2px solid transparent;
+      margin: 20px;
     }
 
     .character-card.active {
@@ -148,7 +152,7 @@
       color: #fff;
       cursor: pointer;
       font-size: 0.99rem;
-      
+
     }
 
     .opt.active {
@@ -212,7 +216,8 @@
   <section id="characters-section" class="section-content active">
     <div class="container">
       <aside class="character-selection">
-        <h2>Operators</h2>
+        <h2 id="op">Operators</h2>
+   
         <div class="character-card active" onclick="selectCharacter('rumi')">
           <h3>Rumi</h3>
           <p>Support Medic</p>
@@ -231,6 +236,8 @@
         <h1 id="charTitle">Rumi</h1>
         <span class="character-role" id="charRole">Support Medic</span>
         <p id="charBio">Versatile medic who can revive and boost teammates on the fly.</p>
+        <p id="appliedLoadout" class="applied-loadout">Loadout: Mk1 • Light • Urban</p>
+
       </main>
       <aside class="loadout">
         <h2>Customize Loadout</h2>
@@ -267,7 +274,7 @@
     </div>
   </section>
   <script>
-    // Only use img, name, role, bio now.
+
     const characterData = {
       rumi: {
         img: 'rumi.png',
@@ -299,7 +306,35 @@
       document.getElementById('charBio').textContent = c.bio;
     }
     window.onload = () => selectCharacter('rumi');
+    const selected = { helmet: "Mk1", vest: "Light", skin: "Urban" };
+
+document.querySelectorAll(".options").forEach(group => {
+  const type = group.dataset.type;
+  group.querySelectorAll(".opt").forEach(btn => {
+    btn.onclick = () => {
+      group.querySelector(".active")?.classList.remove("active");
+      btn.classList.add("active");
+      selected[type] = btn.innerText;
+      update();
+    };
+  });
+});
+
+function update() {
+  loadoutSummary.textContent = `${selected.helmet} • ${selected.vest} • ${selected.skin}`;
+}
+
+function flash() {
+  update();
+  loadoutSummary.classList.add("flash");
+  setTimeout(() => loadoutSummary.classList.remove("flash"), 300);
+}
+
+document.getElementById("applyBtn").onclick = () => {
+  flash();
+  appliedLoadout.textContent =
+    `Loadout: ${selected.helmet} • ${selected.vest} • ${selected.skin}`;
+};
   </script>
 </body>
-
 </html>
