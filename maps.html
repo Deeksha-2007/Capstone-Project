@@ -1,53 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maps - SquadSync</title>
   <link rel="stylesheet" href="index.css">
   <style>
-    input[name="mapbg"] { display: none; }
+    input[name="mapbg"] {
+      display: none;
+    }
+
     .mainbg {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
       z-index: -2;
       display: block;
     }
-    .bgvideo { 
-      position: fixed; top: 0; left: 0;
-      width: 100vw; height: 100vh;
+
+    .bgvideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
       z-index: -1;
       display: none;
     }
-    #desert:checked ~ .bg-desert,
-    #sky:checked ~ .bg-sky,
-    #snow:checked ~ .bg-snow {
+
+    #desert:checked~.bg-desert,
+    #sky:checked~.bg-sky,
+    #snow:checked~.bg-snow {
       display: block;
     }
-    .navbar, .tabs, #maps-section { position: relative; z-index: 1; }
-    .maps-grid { display: flex; gap: 32px; margin-top: 70px;}
-    .map-card { 
-      background: #21253a; border-radius: 16px; color: #fff; font-size: 1.2rem; 
-      width: 320px; box-shadow: 0 6px 14px #012; cursor: pointer; text-align: center;
-      transition: box-shadow .3s; position: relative; z-index: 1; overflow: hidden;
+
+    .navbar,
+    .tabs,
+    #maps-section {
+      position: relative;
+      z-index: 1;
     }
-    .map-card img { width:100%; display: block;}
-    .map-card:hover { box-shadow: 0 6px 24px #1dd3f888; color: #1dd3f8;}
-    .map-overlay { background: rgba(0,18,32,.7); padding:28px 12px;}
+
+    .maps-grid {
+      display: flex;
+      gap: 32px;
+      margin-top: 70px;
+    }
+
+    .map-card {
+      background: #21253a;
+      border-radius: 16px;
+      color: #fff;
+      font-size: 1.2rem;
+      width: 320px;
+      box-shadow: 0 6px 14px #012;
+      cursor: pointer;
+      text-align: center;
+      transition: box-shadow .3s;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .map-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .map-card:hover {
+      box-shadow: 0 6px 24px #1dd3f888;
+      color: #1dd3f8;
+    }
+
+    .map-overlay {
+      background: rgba(0, 18, 32, .7);
+      padding: 28px 12px;
+    }
+
+    .maps-title {
+      font-size: 1.8rem;
+      text-align: center;
+      padding: 10px 20px;
+      margin: 20px auto;
+      width: fit-content;
+      color: #1dd3f8;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      backdrop-filter: blur(6px);
+    }
   </style>
 </head>
+
 <body>
-
   <video class="mainbg" src="front.mov" autoplay muted loop></video>
-  
-
   <input type="radio" id="desert" name="mapbg">
   <input type="radio" id="sky" name="mapbg">
   <input type="radio" id="snow" name="mapbg">
-
   <video class="bgvideo bg-desert" src="desert.mov" autoplay muted loop></video>
   <video class="bgvideo bg-sky" src="ancient.mov" autoplay muted loop></video>
   <video class="bgvideo bg-snow" src="snow.mov" autoplay muted loop></video>
@@ -75,8 +128,7 @@
     </div>
   </nav>
   <section id="maps-section" class="maps-section section-content">
-    <h2 class="maps-title">🗺 Featured Battle Maps</h2>
-    <p class="maps-subtitle">Explore terrains where legends are made</p>
+    <h2 class="maps-title">Featured Battle Maps</h2>
     <div class="maps-grid">
 
       <label for="desert" class="map-card">
@@ -100,7 +152,6 @@
           <p>Environment: Snow / Survival</p>
         </div>
       </label>
-      
     </div>
   </section>
 </body>
